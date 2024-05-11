@@ -265,7 +265,7 @@
                 <div class="text-justify">
                     It encounters challenges in severe ill-conditioned situations, such as heavy occlusion and rapid motion, as seen in the <i>drums</i> in the static NeRF and the <i>standup</i> in the dynamic NeRF. 
                     To alleviate this issue, we propose a curriculum weighting strategy for multi-plane encoding, aiming to manipulate the engagement of multi-plane features per training step. 
-                    This approach trains the coordinate-based network first, followed by the subsequent training of multi-plane features. In this subsection, we denote $t$ as the training iteration. 
+                    This approach trains the coordinate-based network first, followed by the subsequent training of multi-plane features. In this subsection, we denote \( t \) as the training iteration. 
                     Technically, we introduce a weighting factor denoted as \( \alpha(t) \) to control the degree of engagement of multi-plane features along multi-plane channel dimensions.
                 </div>
                 <br>
@@ -282,12 +282,6 @@
                     \]
                 </div>
                 <br>
-                <div class="text-justify">
-                    With our proposed UE Loss, ours improves both of the rendering quality and the reliability of the model outputs by a large margin compared to MixNeRF.
-                </div>
-                <div class="text-justify">
-                    (From the left to the right: RGB, RGB_Std, Depth, Depth_Std)
-                </div>
                 <h4>
                     MixNeRF
                 </h4>
@@ -296,6 +290,7 @@
                         <td align="left" valign="top" width="25%">
                             <video id="ue_mix1" width="100%" playsinline autoplay loop muted>
                                 <source src="video/mixnerf_scan34_3view_rgb.mp4" type="video/mp4" />
+                                <p class="text-center"><strong>Hexplane</strong></p>
                             </video>
                         </td>
                         <td align="left" valign="top" width="25%">
