@@ -37,6 +37,14 @@
     <script src="js/app.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- equation fontsize -->
+    <style>
+        /* This CSS will increase the font size of the equation */
+        #math-container {
+            font-size: 20px; /* Increase this value to make the equation larger */
+        }
+    </style>
 </head>
 
 <body>
@@ -219,7 +227,7 @@
                     However, engaging all features yields clear and detailed images.
                 </div>
                 <br>
-                <div class="text-center">
+                <div class="text-center" id="math-container">
                     \[
                         \begin{aligned}
                         \phi_1(s_k, f_k) &= \textit{h}\big(W_1^2 \cdot \textit{h}(W_1^1 \cdot (s_k \oplus f_k) + b_1^1) + b_1^2\big) \\
