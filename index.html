@@ -240,63 +240,46 @@
                     The parameters \( \{W_l, b_l\}_{l=1}^L \) are the weights and biases of the \( l \)-layer MLP.
                     The subsequent process is defined in MLP \( \phi_l(\cdot) \), where \( l>2 \), contains one pair of weights and biases.
                     The residual concatenation of coordinates value \( s_k \) and multi-plane features \( f_k \) across the first two blocks.
-                    We employ ReLU activation $\textit{h}$ to lean toward low-frequency spectral bias. \( \oplus \) denotes the concatenation operation.
+                    We employ ReLU activation \( \textit{h} \) to lean toward low-frequency spectral bias. \( \oplus \) denotes the concatenation operation.
                 </div>
-                
-                
-                <br>
-                <div class="text-justify">
-                    To generate the additional training rays based on the flipped reflection direction, we need a set of imaginary ray origins located in a suitable space considering the hitting point and the original input ray origins.
-                    Since the vanilla NeRF models, which are trained with a dense set of images, tend to have the blending weight distribution whose peak is located on the point around the object surface p<sub>s</sub> = o + t<sub>s</sub>d, <i>i.e.,</i> the s-th sample whose blending weight is the highest along a ray, we place o′ so that the s-th sample of r′ is p<sub>s</sub>:
-                </div>
-                <br>
-                <div class="text-center">
-                    <img src="./img/frray_2.png" width="25%">
-                </div>
-                <br>
-                <div class="text-justify">
-                    resulting in our proposed flipped reflection ray, r′(t) = o′ + td′.
-                </div>
-                <br>
-                <div class="text-justify">
-                    However, since the estimated surface normals, which are used to derive the flipped reflection directions, are not the ground truth but the estimation, there exists a concern that even miscreated r′, which do not satisfy photo-consistency, can be used for training.
-                    To address this problem, we mask the ineffective r′ by considering the angle θ between the estimated surface normals and reflection directions as follows:
-                </div>
-                <br>
-                <div class="text-center">
-                    <img src="./img/frray_3.png" width="50%">
-                </div>
-                <br>
-                <div class="text-justify">
-                    where −(d&#770 · n&#770) amounts to cosθ of original input rays and normal vectors, and τ indicates the threshold for filtering the invalid rays, which we set as 90<sup>◦</sup> unless specified.
-                    Through this masking process, only r′ which are cast toward the photo-consistent point can be remained as we intend.
-                </div>
-<!--                <div class="text-center">-->
-<!--                    <video id="refdir" width="40%" playsinline autoplay loop muted>-->
-<!--                        <source src="video/reflection_animation.mp4" type="video/mp4" />-->
-<!--                    </video>-->
-<!--                </div>-->
+               <!-- <div class="text-center"> -->
+                   <!-- <video id="refdir" width="40%" playsinline autoplay loop muted> -->
+                       <!-- <source src="video/reflection_animation.mp4" type="video/mp4" /> -->
+                   <!-- </video> -->
+               <!-- </div> -->
             </div>
         </div>
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Uncertainty-aware Regularization
+                    Scheme
                 </h3>
-                <div class="text-justify">
-                    The naive application of existing regularization techniques with limited training views might not be consistently helpful across the different scenes due to the scene-by-scene different structure, resulting in overall performance degradation.
-                    To address this problem, we propose <i>Uncertainty-aware Emptiness Loss (UE Loss)</i>, which reduces the floating artifacts consistently over the different scenes by considering the output uncertainty:
-                </div>
-                <br>
                 <div class="text-center">
-                    <img src="./img/ueloss_1.png" width="50%">
+                    <img src="./img/3_Scheme.png" width="100%">
                 </div>
                 <br>
+                <h4>
+                    Curriculum Weighting Strategy
+                </h4>
                 <div class="text-justify">
-                    ρ amounts to the average of the summation of estimated scale parameters of RGB color distributions from all samples along a ray, which we use as the uncertainty of a ray.
-                    By our proposed UE Loss, we are able to regularize the blending weights adaptively, i.e., the more uncertain a ray is, the more penalized the blending weights along the ray are.
-                    It is able to reduce floating artifacts consistently across the scenes with different structures and enables to synthesize more reliable outputs by considering uncertainty.
+                    It encounters challenges in severe ill-conditioned situations, such as heavy occlusion and rapid motion, as seen in the <i>drums</i> in the static NeRF and the <i>standup</i> in the dynamic NeRF. 
+                    To alleviate this issue, we propose a curriculum weighting strategy for multi-plane encoding, aiming to manipulate the engagement of multi-plane features per training step. 
+                    This approach trains the coordinate-based network first, followed by the subsequent training of multi-plane features. In this subsection, we denote $t$ as the training iteration. 
+                    Technically, we introduce a weighting factor denoted as \( \alpha(t) \) to control the degree of engagement of multi-plane features along multi-plane channel dimensions.
+                </div>
+                <br>
+                <div class="text-center" id="math-container">
+                    \[
+                        \begin{equation}
+                        \gamma_{j}(t)                                         = 
+                        \begin{cases}
+                                    0                                       & \text{if } \alpha(t) \leq j \\
+                                    \frac{1-\cos ((\alpha(t) - j) \pi)}{2}  & \text{if } 0 < \alpha(t) - j \leq 1 \\
+                                    1                                       & \text{otherwise, } 
+                        \end{cases}
+                        \end{equation}
+                    \]
                 </div>
                 <br>
                 <div class="text-justify">
