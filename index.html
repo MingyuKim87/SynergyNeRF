@@ -8,18 +8,18 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta property="og:image" content="https://shawn615.github.io/flipnerf/img/flipnerf_titlecard.png">
+    <meta property="og:image" content="https://mingyukim87.github.io/TensorRefine/img/1_Teaser.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1783">
     <meta property="og:image:height" content="1619">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://shawn615.github.io/flipnerf">
+    <meta property="og:url" content="https://github.com/MingyuKim87/TensorRefine">
     <meta property="og:title" content="Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs">
-    <meta property="og:description" content="ResNet enables incoporation of ReLU-coodinate Network and tensorial feature for Few-shots NeRFs.">
+    <meta property="og:description" content="We incorporate multi-plane representation and coordinate networks to improve NeRFs from sparse-inputs. ">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs">
-    <meta name="twitter:description" content="ResNet enables incoporation of ReLU-coodinate Network and tensorial feature for Few-shots NeRFs.">
-    <meta name="twitter:image" content="https://shawn615.github.io/flipnerf/img/flipnerf_titlecard.png">
+    <meta name="twitter:description" content="We incorporate multi-plane representation and coordinate networks to improve NeRFs from sparse-inputs. ">
+    <meta name="twitter:image" content="https://mingyukim87.github.io/TensorRefine/img/1_Teaser.png">
 
 
     <!-- mirror: F0%9F%AA%9E&lt -->
@@ -52,28 +52,28 @@
                 <table class="author-table" id="author-table">
                     <tr>
                         <td>
-                            <a style="text-decoration:none" href="https://shawn615.github.io/">
+                            <a style="text-decoration:none" href="https://mingyukim87.github.io/">
                               Mingyu Kim
                             </a>
                             <br>KAIST AI
                         </td>
                         <td>
-                            <a style="text-decoration:none" href="https://yeonjin-chang.github.io/">
+                            <a style="text-decoration:none" href="https://ami.postech.ac.kr/members/kim-jun-seong/">
                               Jun-Seong Kim
                             </a>
                             <br>POSTECH EE
                         </td>
                         <td>
-                            <a style="text-decoration:none" href="http://mipal.snu.ac.kr/index.php/Nojun_Kwak">
+                            <a style="text-decoration:none" href="https://fbsqkd.github.io/">
                               Se-Young Yun
                             </a>
                             <br>KAIST AI
                         </td>
                         <td>
-                            <a style="text-decoration:none" href="http://mipal.snu.ac.kr/index.php/Nojun_Kwak">
+                            <a style="text-decoration:none" href="http://wityworks.com/">
                               Jin-Hwa Kim
                             </a>
-                            <br>NAVER AI Lab, SNU AIIS
+                            <br>NAVER AI Lab
                         </td>
                     </tr>
                 </table>
@@ -112,7 +112,7 @@
 <!--                            </a>-->
 <!--                        </li>                            -->
                         <li>
-                            <a href="https://github.com/shawn615/FlipNeRF" target="_blank">
+                            <a href="https://github.com/MingyuKim87/TensorRefine" target="_blank">
                             <image src="img/github.png" height="60px">
                                 <h4><strong>Code</strong></h4>
                             </a>
@@ -139,9 +139,40 @@
                 <h3>
                     Abstract
                 </h3>
-                <image src="img/teaser.png" class="img-responsive" alt="overview"><br>
+                <!-- Image container starts here -->
+                <div class="row">
+                    <!-- First image with label 'hexplane' -->
+                    <div class="col-md-6">
+                        <img src="img/0_HexPlane.png" class="img-responsive" alt="Hexplane Representation">
+                        <p class="text-center"><strong>Hexplane</strong></p>
+                    </div>
+                    <!-- Second image with label 'ours' -->
+                    <div class="col-md-6">
+                        <img src="img/0_Ours.png" class="img-responsive" alt="Our Method">
+                        <p class="text-center"><strong>Ours</strong></p>
+                    </div>
+                </div>
+                <!-- Image container ends -->
+
                 <p class="text-justify">
-Neural Radiance Field (NeRF) has been a mainstream in novel view synthesis with its remarkable quality of rendered images and simple architecture. Although NeRF has been developed in various directions improving continuously its performance, the necessity of a dense set of multi-view images still exists as a stumbling block to progress for practical application. In this work, we propose FlipNeRF, a novel regularization method for few-shot novel view synthesis by utilizing our proposed flipped reflection rays. The flipped reflection rays are explicitly derived from the input ray directions and estimated normal vectors, and play a role of effective additional training rays while enabling to estimate more accurate surface normals and learn the 3D geometry effectively. Since the surface normal and the scene depth are both derived from the estimated densities along a ray, the accurate surface normal leads to more exact depth estimation, which is a key factor for few-shot novel view synthesis. Furthermore, with our proposed Uncertainty-aware Emptiness Loss and Bottleneck Feature Consistency Loss, FlipNeRF is able to estimate more reliable outputs with reducing floating artifacts effectively across the different scene structures, and enhance the feature-level consistency between the pair of the rays cast toward the photo-consistent pixels without any additional feature extractor, respectively. Our FlipNeRF achieves the SOTA performance on the multiple benchmarks across all the scenarios.                </p>
+                    In this work, we propose a method that synergistically integrates multi-plane representation with a coordinate-based network known for strong bias toward low-frequency signals.
+                    The coordinate-based network is responsible for capturing low-frequency details, while the multi-plane representation focuses on capturing fine-grained details. 
+                    We demonstrate that using residual connections between them seamlessly preserves their own inherent properties.
+                    Additionally, the proposed progressive training scheme accelerates the disentanglement of these two features. 
+                    We empirically show that the proposed method achieves comparable results to explicit encoding with fewer parameters, and particularly, it outperforms others for the static and dynamic NeRFs under sparse inputs.                
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    TL;DR:
+                </h3>
+                <p class="text-justify">
+                    We incorporate multi-plane representation and coordinate networks to improve NeRFs from sparse-inputs. 
+                    This technique consistently proves effective in both static and dynamic NeRF applications, outperforming existing methods.
+                </p>
             </div>
         </div>
 
