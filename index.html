@@ -45,6 +45,18 @@
             font-size: 20px; /* Increase this value to make the equation larger */
         }
     </style>
+
+    <!-- citation style -->
+    <style>
+        /* Apply background color and text alignment styles */
+        #bibtex {
+            background-color: #f5f5f5; /* Light grey background */
+            text-align: left; /* Left align text */
+            width: 100%; /* Make textarea full width of its container */
+            height: auto; /* Adjust height to fit the content */
+            padding: 10px; /* Add some padding inside the textarea */
+        }
+    </style>
 </head>
 
 <body>
@@ -298,19 +310,19 @@
                 </h4>
                 <table width="100%">
                     <tr>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix1" width="100%" playsinline autoplay loop muted>
                                 <source src="video/FreeNeRF_Lego.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Lego</strong></p>
                             </video>
                         </td>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix2" width="100%" playsinline autoplay loop muted>
                                 <source src="video/FreeNeRF_Drums.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Drums</strong></p>
                             </video>
                         </td>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix3" width="100%" playsinline autoplay loop muted>
                                 <source src="video/FreeNeRF_Ship.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Ship</strong></p>
@@ -323,19 +335,19 @@
                 </h4>
                 <table width="100%">
                     <tr>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix1" width="100%" playsinline autoplay loop muted>
                                 <source src="video/TensoRF_Lego.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Lego</strong></p>
                             </video>
                         </td>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix2" width="100%" playsinline autoplay loop muted>
                                 <source src="video/TensoRF_Drums.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Drums</strong></p>
                             </video>
                         </td>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix3" width="100%" playsinline autoplay loop muted>
                                 <source src="video/TensoRF_Ship.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Ship</strong></p>
@@ -348,19 +360,19 @@
                 </h4>
                 <table width="100%">
                     <tr>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix1" width="100%" playsinline autoplay loop muted>
                                 <source src="video/K_Planes_Lego.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Lego</strong></p>
                             </video>
                         </td>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix2" width="100%" playsinline autoplay loop muted>
                                 <source src="video/K_Planes_Drums.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Drums</strong></p>
                             </video>
                         </td>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix3" width="100%" playsinline autoplay loop muted>
                                 <source src="video/K_Planes_Ship.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Ship</strong></p>
@@ -373,19 +385,19 @@
                 </h4>
                 <table width="100%">
                     <tr>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix1" width="100%" playsinline autoplay loop muted>
                                 <source src="video/SynergyNeRF_Lego.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Lego</strong></p>
                             </video>
                         </td>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix2" width="100%" playsinline autoplay loop muted>
                                 <source src="video/SynergyNeRF_Drums.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Drums</strong></p>
                             </video>
                         </td>
-                        <td align="left" valign="top" width="33%">
+                        <td align="left" valign="top" width="30%">
                             <video id="ue_mix3" width="100%" playsinline autoplay loop muted>
                                 <source src="video/SynergyNeRF_Ship.mp4" type="video/mp4" />
                                 <p class="text-center"><strong>Ship</strong></p>
@@ -403,13 +415,13 @@
                 </h3>
                 <div class="form-group col-md-10 col-md-offset-1">
                     <textarea id="bibtex" class="form-control" readonly>
-                        @InProceedings{kim2024synergistic,
-                            author    = {Kim, Mingyu and Kim, Jun-Seong, Yun, Se-Young and Kim, Jin-Hwa},
-                            title     = {Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs},
-                            booktitle = {International Conference on Machine Learning},
-                            year      = {2024},
-                            organization={PMLR}
-                        }
+@InProceedings{kim2024synergistic,
+    author    = {Kim, Mingyu and Kim, Jun-Seong and Yun, Se-Young and Kim, Jin-Hwa},
+    title     = {Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs},
+    booktitle = {International Conference on Machine Learning},
+    year      = {2024},
+    organization={PMLR}
+}
                     </textarea>
                 </div>
             </div>
