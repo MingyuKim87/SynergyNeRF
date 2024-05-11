@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html><head lang="en"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>FlipNeRF</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:image" content="https://shawn615.github.io/flipnerf/img/flipnerf_titlecard.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1783">
+    <meta property="og:image:height" content="1619">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://shawn615.github.io/flipnerf">
+    <meta property="og:title" content="Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs">
+    <meta property="og:description" content="ResNet enables incoporation of ReLU-coodinate Network and tensorial feature for Few-shots NeRFs.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs">
+    <meta name="twitter:description" content="ResNet enables incoporation of ReLU-coodinate Network and tensorial feature for Few-shots NeRFs.">
+    <meta name="twitter:image" content="https://shawn615.github.io/flipnerf/img/flipnerf_titlecard.png">
+
+
+    <!-- mirror: F0%9F%AA%9E&lt -->
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🪞&lt;/text&gt;&lt;/svg&gt;">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/codemirror.min.js"></script>
+    <script src="js/clipboard.min.js"></script>
+    <script src="js/video_comparison.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="header" style="text-align: center; margin: auto;">
+        <div class="row" id="title-row" style="max-width: 100%; margin: 0 auto; display: inline-block">
+            <h2 class="col-md-12 text-center" id="title">
+                Synergistic Integration of Coordinate Network and <br> Tensorial Feature for Improving NeRFs from Sparse Inputs<br>
+                <small>
+                    ICML 2024
+                </small>
+            </h2>
+        </div>
+        <div class="row" id="author-row" style="margin:0 auto;">
+            <div class="col-md-12 text-center" style="display: table; margin:0 auto">
+                <table class="author-table" id="author-table">
+                    <tr>
+                        <td>
+                            <a style="text-decoration:none" href="https://shawn615.github.io/">
+                              Mingyu Kim
+                            </a>
+                            <br>KAIST AI
+                        </td>
+                        <td>
+                            <a style="text-decoration:none" href="https://yeonjin-chang.github.io/">
+                              Jun-Seong Kim
+                            </a>
+                            <br>POSTECH EE
+                        </td>
+                        <td>
+                            <a style="text-decoration:none" href="http://mipal.snu.ac.kr/index.php/Nojun_Kwak">
+                              Se-Young Yun
+                            </a>
+                            <br>KAIST AI
+                        </td>
+                        <td>
+                            <a style="text-decoration:none" href="http://mipal.snu.ac.kr/index.php/Nojun_Kwak">
+                              Jin-Hwa Kim
+                            </a>
+                            <br>NAVER AI Lab, SNU AIIS
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('author-row').style.maxWidth = document.getElementById("title-row").clientWidth + 'px';
+    </script>
+    <div class="container" id="main">
+        <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2306.17723">
+                            <img src="./img/paper_image.png" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                       <li>
+                           <a href="https://youtu.be/_XNsRxzaPjw">
+                           <img src="./img/youtube_icon.png" height="60px">
+                               <h4><strong>Video</strong></h4>
+                           </a>
+                       </li>
+<!--                        <li>-->
+<!--                            <a href="https://storage.googleapis.com/gresearch/refraw360/ref.zip" target="_blank">-->
+<!--                            <image src="img/database_icon.png" height="60px">-->
+<!--                                <h4><strong>Shiny Dataset</strong></h4>-->
+<!--                            </a>-->
+<!--                        </li>-->
+<!--                        <li>-->
+<!--                            <a href="https://storage.googleapis.com/gresearch/refraw360/ref_real.zip" target="_blank">-->
+<!--                            <image src="img/real_database_icon.png" height="60px">-->
+<!--                                <h4><strong>Real Dataset</strong></h4>-->
+<!--                            </a>-->
+<!--                        </li>                            -->
+                        <li>
+                            <a href="https://github.com/shawn615/FlipNeRF" target="_blank">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+
+<!--        <div class="row">-->
+<!--            <div class="col-md-8 col-md-offset-2">-->
+<!--                <div class="video-compare-container" id="materialsDiv">-->
+<!--                    <video class="video" id="materials" loop playsinline autoPlay muted src="video/materials_circle_mipnerf_ours.mp4" onplay="resizeAndPlay(this)"></video>-->
+<!--                    -->
+<!--                    <canvas height=0 class="videoMerge" id="materialsMerge"></canvas>-->
+<!--                </div>-->
+<!--			</div>-->
+<!--        </div>-->
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <image src="img/teaser.png" class="img-responsive" alt="overview"><br>
+                <p class="text-justify">
+Neural Radiance Field (NeRF) has been a mainstream in novel view synthesis with its remarkable quality of rendered images and simple architecture. Although NeRF has been developed in various directions improving continuously its performance, the necessity of a dense set of multi-view images still exists as a stumbling block to progress for practical application. In this work, we propose FlipNeRF, a novel regularization method for few-shot novel view synthesis by utilizing our proposed flipped reflection rays. The flipped reflection rays are explicitly derived from the input ray directions and estimated normal vectors, and play a role of effective additional training rays while enabling to estimate more accurate surface normals and learn the 3D geometry effectively. Since the surface normal and the scene depth are both derived from the estimated densities along a ray, the accurate surface normal leads to more exact depth estimation, which is a key factor for few-shot novel view synthesis. Furthermore, with our proposed Uncertainty-aware Emptiness Loss and Bottleneck Feature Consistency Loss, FlipNeRF is able to estimate more reliable outputs with reducing floating artifacts effectively across the different scene structures, and enhance the feature-level consistency between the pair of the rays cast toward the photo-consistent pixels without any additional feature extractor, respectively. Our FlipNeRF achieves the SOTA performance on the multiple benchmarks across all the scenarios.                </p>
+            </div>
+        </div>
+
+        <div class="row">
+           <div class="col-md-8 col-md-offset-2">
+               <h3>
+                   Video
+               </h3>
+               <div class="text-center">
+                   <div style="position:relative;padding-top:56.25%;">
+                       <iframe src="https://www.youtube.com/embed/_XNsRxzaPjw" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                   </div>
+               </div>
+           </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Flipped Reflection Ray
+                </h3>
+                <div class="text-justify">
+                    We exploit a batch of <i>flipped reflection rays</i> r′ ∈ R′ as extra training resources, which are derived from the original input ray directions and estimated surface normals.
+                </div>
+                <br>
+                <div class="text-center">
+                    <img src="./img/frray_generation.png" width="50%">
+                </div>
+                <br>
+                <div class="text-justify">
+                    First, we derive a flipped reflection direction from the original one and the estimated surface normal:
+                </div>
+                <br>
+                <div class="text-center">
+                    <img src="./img/frray_1.png" width="30%">
+                </div>
+                <br>
+                <div class="text-justify">
+                    To generate the additional training rays based on the flipped reflection direction, we need a set of imaginary ray origins located in a suitable space considering the hitting point and the original input ray origins.
+                    Since the vanilla NeRF models, which are trained with a dense set of images, tend to have the blending weight distribution whose peak is located on the point around the object surface p<sub>s</sub> = o + t<sub>s</sub>d, <i>i.e.,</i> the s-th sample whose blending weight is the highest along a ray, we place o′ so that the s-th sample of r′ is p<sub>s</sub>:
+                </div>
+                <br>
+                <div class="text-center">
+                    <img src="./img/frray_2.png" width="25%">
+                </div>
+                <br>
+                <div class="text-justify">
+                    resulting in our proposed flipped reflection ray, r′(t) = o′ + td′.
+                </div>
+                <br>
+                <div class="text-justify">
+                    However, since the estimated surface normals, which are used to derive the flipped reflection directions, are not the ground truth but the estimation, there exists a concern that even miscreated r′, which do not satisfy photo-consistency, can be used for training.
+                    To address this problem, we mask the ineffective r′ by considering the angle θ between the estimated surface normals and reflection directions as follows:
+                </div>
+                <br>
+                <div class="text-center">
+                    <img src="./img/frray_3.png" width="50%">
+                </div>
+                <br>
+                <div class="text-justify">
+                    where −(d&#770 · n&#770) amounts to cosθ of original input rays and normal vectors, and τ indicates the threshold for filtering the invalid rays, which we set as 90<sup>◦</sup> unless specified.
+                    Through this masking process, only r′ which are cast toward the photo-consistent point can be remained as we intend.
+                </div>
+<!--                <div class="text-center">-->
+<!--                    <video id="refdir" width="40%" playsinline autoplay loop muted>-->
+<!--                        <source src="video/reflection_animation.mp4" type="video/mp4" />-->
+<!--                    </video>-->
+<!--                </div>-->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Uncertainty-aware Regularization
+                </h3>
+                <div class="text-justify">
+                    The naive application of existing regularization techniques with limited training views might not be consistently helpful across the different scenes due to the scene-by-scene different structure, resulting in overall performance degradation.
+                    To address this problem, we propose <i>Uncertainty-aware Emptiness Loss (UE Loss)</i>, which reduces the floating artifacts consistently over the different scenes by considering the output uncertainty:
+                </div>
+                <br>
+                <div class="text-center">
+                    <img src="./img/ueloss_1.png" width="50%">
+                </div>
+                <br>
+                <div class="text-justify">
+                    ρ amounts to the average of the summation of estimated scale parameters of RGB color distributions from all samples along a ray, which we use as the uncertainty of a ray.
+                    By our proposed UE Loss, we are able to regularize the blending weights adaptively, i.e., the more uncertain a ray is, the more penalized the blending weights along the ray are.
+                    It is able to reduce floating artifacts consistently across the scenes with different structures and enables to synthesize more reliable outputs by considering uncertainty.
+                </div>
+                <br>
+                <div class="text-justify">
+                    With our proposed UE Loss, ours improves both of the rendering quality and the reliability of the model outputs by a large margin compared to MixNeRF.
+                </div>
+                <div class="text-justify">
+                    (From the left to the right: RGB, RGB_Std, Depth, Depth_Std)
+                </div>
+                <h4>
+                    MixNeRF
+                </h4>
+                <table width="100%">
+                    <tr>
+                        <td align="left" valign="top" width="25%">
+                            <video id="ue_mix1" width="100%" playsinline autoplay loop muted>
+                                <source src="video/mixnerf_scan34_3view_rgb.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="ue_mix2" width="100%" playsinline autoplay loop muted>
+                                <source src="video/mixnerf_scan34_3view_rgbstd.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="ue_mix3" width="100%" playsinline autoplay loop muted>
+                                <source src="video/mixnerf_scan34_3view_depth.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="ue_mix4" width="100%" playsinline autoplay loop muted>
+                                <source src="video/mixnerf_scan34_3view_depthstd.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                    </tr>
+                </table>
+                <h4>
+                    FlipNeRF (Ours)
+                </h4>
+                <table width="100%">
+                    <tr>
+                        <td align="left" valign="top" width="25%">
+                            <video id="ue_flip1" width="100%" playsinline autoplay loop muted>
+                                <source src="video/flipnerf_scan34_3view_rgb.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="ue_flip2" width="100%" playsinline autoplay loop muted>
+                                <source src="video/flipnerf_scan34_3view_rgbstd.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="ue_flip3" width="100%" playsinline autoplay loop muted>
+                                <source src="video/flipnerf_scan34_3view_depth.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="ue_flip4" width="100%" playsinline autoplay loop muted>
+                                <source src="video/flipnerf_scan34_3view_depthstd.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Bottleneck Feature Consistency
+                </h3>
+                <div class="text-justify">
+                    We encourage the consistency of bottleneck feature distributions between r and r′, which are intermediate feature vectors, <i>i.e.,</i> outputs of the spatial MLP of NeRF, by Jensen-Shannon Divergence (JSD):
+                </div>
+                <br>
+                <div class="text-center">
+                    <img src="./img/bfcloss_1.png" width="50%">
+                </div>
+                <br>
+                <div class="text-justify">
+                    where ψ(·), b and b′ denote the softmax function, the bottleneck features of r and r′, respectively.
+                    We regulate the pair of features effectively by enhancing consistency between bottleneck features without depending on additional feature extractors.
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Comparison with Baselines
+                </h3>
+                <div class="text-justify">
+                    Our FlipNeRF estimates more accurate surface normals than other baselines, leading to the performance gain with better reconstructed fine details from limited input views.
+                </div>
+                <div class="text-justify">
+                    (From the left to the right: mip-NeRF, Ref-NeRF, MixNeRF, FlipNeRF (Ours))
+                </div>
+                <table width="100%">
+                    <tr>
+                        <td align="left" valign="top" width="25%">
+                            <video id="rgb1" width="100%" playsinline autoplay loop muted>
+                                <source src="video/mipnerf_hotdog_4view_rgb.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="rgb2" width="100%" playsinline autoplay loop muted>
+                                <source src="video/refnerf_hotdog_4view_rgb.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="rgb3" width="100%" playsinline autoplay loop muted>
+                                <source src="video/mixnerf_hotdog_4view_rgb.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="rgb4" width="100%" playsinline autoplay loop muted>
+                                <source src="video/flipnerf_hotdog_4view_rgb.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <table width="100%">
+                    <tr>
+                        <td align="left" valign="top" width="25%">
+                            <video id="normals1" width="100%" playsinline autoplay loop muted>
+                                <source src="video/mipnerf_hotdog_4view_normals.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="normals2" width="100%" playsinline autoplay loop muted>
+                                <source src="video/refnerf_hotdog_4view_normals.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="normals3" width="100%" playsinline autoplay loop muted>
+                                <source src="video/mixnerf_hotdog_4view_normals.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                        <td align="left" valign="top" width="25%">
+                            <video id="normals4" width="100%" playsinline autoplay loop muted>
+                                <source src="video/flipnerf_hotdog_4view_normals.mp4" type="video/mp4" />
+                            </video>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+@InProceedings{Seo_2023_ICCV,
+    author    = {Seo, Seunghyeon and Chang, Yeonjin and Kwak, Nojun},
+    title     = {FlipNeRF: Flipped Reflection Rays for Few-shot Novel View Synthesis},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {22883-22893}
+}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                This work was supported by NRF (2021R1A2C3006659) and IITP (2021-0-01343) both funded by Korean Government. It was also supported by Samsung Electronics (IO201223-08260-01).
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+</body></html>
