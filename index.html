@@ -91,7 +91,7 @@
         <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 text-center">
                     <ul class="nav nav-pills nav-justified">
-                        <li>
+                        <!-- <li>
                             <a href="https://arxiv.org/abs/2306.17723">
                             <img src="./img/paper_image.png" height="60px">
                                 <h4><strong>Paper</strong></h4>
@@ -102,7 +102,7 @@
                            <img src="./img/youtube_icon.png" height="60px">
                                <h4><strong>Video</strong></h4>
                            </a>
-                       </li>
+                       </li> -->
 <!--                        <li>-->
 <!--                            <a href="https://storage.googleapis.com/gresearch/refraw360/ref.zip" target="_blank">-->
 <!--                            <image src="img/database_icon.png" height="60px">-->
@@ -190,9 +190,12 @@
                    Video
                </h3>
                <div class="text-center">
-                   <div style="position:relative;padding-top:56.25%;">
+                   <!-- <div style="position:relative;padding-top:56.25%;">
                        <iframe src="https://www.youtube.com/embed/_XNsRxzaPjw" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-                   </div>
+                   </div> -->
+                   <p class="text-justify">
+                    TBD
+                </p>
                </div>
            </div>
         </div>
@@ -200,14 +203,18 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h3>
-                    Flipped Reflection Ray
+                    Residual Neural Radiance Fields Spanning Diverse Spectrum for Sparse-Inputs
                 </h3>
-                <div class="text-justify">
-                    We exploit a batch of <i>flipped reflection rays</i> r′ ∈ R′ as extra training resources, which are derived from the original input ray directions and estimated surface normals.
+                <div class="text-center">
+                    <img src="./img/2_Overview.png" width="100%">
                 </div>
                 <br>
-                <div class="text-center">
-                    <img src="./img/frray_generation.png" width="50%">
+                <div class="text-justify">
+                    The residual connection enhances the network's efficiency in responding to input values, emphasizing the importance of coordinate networks. 
+                    We utilize ReLU activation to promote a low-frequency spectral bias. 
+                    Our proposed method handles both low and high-frequency information in two distinct contexts. 
+                    When only the coordinate network is employed, the output is biased towards low frequencies, aiding global reasoning. 
+                    However, engaging all features yields clear and detailed images.
                 </div>
                 <br>
                 <div class="text-justify">
