@@ -220,12 +220,19 @@
                 </div>
                 <br>
                 <div class="text-center">
-                    <img src="./img/frray_1.png" width="30%">
+                    \[
+                        \begin{aligned}
+                        \phi_1(s_k, f_k) &= \textit{h}\big(W_1^2 \cdot \textit{h}(W_1^1 \cdot (s_k \oplus f_k) + b_1^1) + b_1^2\big) \\
+                        \phi_2(s_k, f_k, \phi_1) &= \textit{h}(W_2^2 \cdot \textit{h}(W_2^1 \cdot (s_k \oplus f_k \oplus \phi_1(s_k, f_k)) + b_2^1) + b_2^2
+                        \end{aligned}
+                    \]
                 </div>
                 <br>
                 <div class="text-justify">
                     The parameters \( \{W_l, b_l\}_{l=1}^L \) are the weights and biases of the \( l \)-layer MLP.
                     The subsequent process is defined in MLP \( \phi_l(\cdot) \), where \( l>2 \), contains one pair of weights and biases.
+                    The residual concatenation of coordinates value $s_k$ and multi-plane features $f_k$ across the first two blocks.
+                    We employ ReLU activation $\textit{h}$ to lean toward low-frequency spectral bias. 
                 </div>
                 
                 
