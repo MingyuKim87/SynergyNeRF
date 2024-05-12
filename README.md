@@ -8,7 +8,7 @@
   <!-- [<a href="#citation"><strong>BibTeX</strong></a>] -->
 </p>
 
-<img src="https://mingyukim87.github.io/SynergyNeRF/img/2_Overview.png" width="100%">
+<img src="https://mingyukim87.github.io/SynergyNeRF/img/2_Overview_2.png" width="100%">
 
 
 </div>
