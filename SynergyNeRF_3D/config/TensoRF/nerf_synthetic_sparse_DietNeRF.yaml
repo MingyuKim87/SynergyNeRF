@@ -1,0 +1,34 @@
+systems:
+  basedir: "./results/DietNeRF/ray_march_thres_00001/TensorVMSplit"
+
+model:
+  model_name: TensorVMSplit
+  N_voxel_init: 2097152
+  upsample_list: [2000, 3000, 4000, 5500, 7000]
+  update_alpha_grid_mask_list: [2000, 4000]
+  init_scale: 0.1
+  init_shift: 0.0
+  shadingMode: "MLP_Fea"
+  view_pe: 2
+  fea_pe: 2
+  featureC: 128
+
+  alphaMask_thres: 0.0001
+  rayMarch_weight_thres: 1.0e-05
+
+data:
+  datadir: "./data/nerf_synthetic"
+  scene: lego
+  sparse_option: "DietNeRF"
+  scene_bbox_min: [-1.5, -1.5, -1.5]
+  scene_bbox_max: [1.5, 1.5, 1.5]
+  downsample: 1.0
+
+optim:
+  n_iters: 30000
+  lr_decay_type: exp
+
+render_val: True
+render_test: True
+render_path: True
+expname: null

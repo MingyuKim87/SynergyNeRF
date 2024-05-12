@@ -1,0 +1,42 @@
+systems:
+  basedir: "./results/official_disentangled/8_views"
+  vis_every: 2000
+
+model:
+  model_name: "SynergyNeRF_disentangled"
+  N_voxel_init: 110592
+  upsampling_type: unaligned
+  upsample_list: [3500, 5000, 7000, 9000, 11000, 13000, 15000]
+  # upsample_list: [3000, 6000, 9000]
+  update_alpha_grid_mask_list: [2000, 4000]
+  fusion_one: "multiply"
+  fusion_two: "concat"
+  init_scale: 0.1
+  init_shift: 0.0
+  density_dim: 1
+  density_mode: "Grid_Coord_Mixing_MLP"
+  TV_weight_density: 0.009
+
+  alpha_mask_thres: 0.0001
+  ray_march_weight_thres: 0.00001
+
+  curriculum_num_modes : 3
+  curriculum_num_features : 48
+  curriculum_start : 0.0
+  curriculum_end : 0.5
+
+data:
+  datadir: "./data/nerf_synthetic"
+  scene: "mic"
+  sparse_option: "DietNeRF"
+  scene_bbox_min: [-1.5, -1.5, -1.5]
+  scene_bbox_max: [1.5, 1.5, 1.5]
+  downsample: 1.0
+
+optim:
+  n_iters: 30000
+  lr_decay_type: "exp"
+
+render_test: True
+render_disentangled: True
+expname: null
