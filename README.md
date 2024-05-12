@@ -30,7 +30,7 @@ and [Jin-Hwa Kim](http://wityworks.com/)<sup>3†</sup>* \
 
 ## News
 
-- (24.05.01) Our paper has been accepted in [**ICML 2024**](https://icml.cc/virtual/2024/poster/34866). We are open to receiving any discussions and will reflect them in the camera-ready version. Looking forward to seeing you in Vienna!
+- (24.05.01) Our paper has been accepted in [**ICML 2024**](https://icml.cc/virtual/2024/poster/34866). 
 - (23.10.21) Our paper has been presented at [**NeurIPS2023 DeepInverse Workshop**](https://openreview.net/forum?id=28zXoRIcZd&referrer=%5Bthe%20profile%20of%20Mingyu%20Kim%5D(%2Fprofile%3Fid%3D~Mingyu_Kim2)).
 
 ## Environment Setup
