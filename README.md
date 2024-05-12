@@ -8,9 +8,6 @@
   <!-- [<a href="#citation"><strong>BibTeX</strong></a>] -->
 </p>
 
-<img src="https://mingyukim87.github.io/SynergyNeRF/img/2_Overview_2.png" width="100%">
-
-
 </div>
 
 <!-- <a href="https://arxiv.org/abs/2402.03898"><img src="https://img.shields.io/badge/Paper-arXiv:2402.03898-Green"></a>
@@ -24,6 +21,8 @@ Official PyTorch implementation of **SynergyNeRF**, as presented in our paper: \
 and [Jin-Hwa Kim](http://wityworks.com/)<sup>3†</sup>* \
 <sup>1</sup>KAIST AI, <sup>2</sup>POSTECH EE, <sup>3</sup>NAVER AI Lab.  
 (<sup>†</sup> indicates corresponding authors)
+
+<img src="https://mingyukim87.github.io/SynergyNeRF/img/2_Overview_2.png" width="100%">  
 
 ## Update
 - [x] Training code.
