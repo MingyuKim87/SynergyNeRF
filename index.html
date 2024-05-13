@@ -54,23 +54,26 @@
             width: 100%;
             overflow: hidden;
             padding: 5px;
+            box-sizing: border-box; /* Includes padding in width calculation */
         }
     
         .scrollbox:hover {
-            overflow-x: auto;
+            overflow-x: auto; /* Enable horizontal scrolling on hover */
         }
     
         #bibtex {
             background-color: #7c7c7c; /* Light grey background */
-            color: white; /* White text color for better readability on dark background */
+            color: white; /* White text color for readability */
             text-align: left; /* Left align text */
-            width: 100%; /* Make textarea full width of its container */
-            height: auto; /* Adjust height to fit the content */
-            min-height: 200px; /* Minimum height to ensure usability */
-            padding: 5px; /* Add some padding inside the textarea */
-            font-family: monospace; /* Monospace font for bibliographic entries */
-            white-space: nowrap; /* Prevent text from wrapping */
-            border: none; /* Remove border */
+            width: 100%; /* Full width of its container */
+            height: auto; /* Adjust height to fit content */
+            min-height: 100px; /* Minimum height */
+            padding: 10px; /* Padding inside the textarea */
+            font-family: monospace; /* Monospace font */
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden; /* Hide overflow */
+            border: none; /* No border */
+            resize: none; /* Prevent resizing */
         }
     </style>
 </head>
@@ -509,7 +512,7 @@
                             series    = {Proceedings of Machine Learning Research},
                             publisher = {PMLR},  
                           }
-                        }</textarea>
+                    </textarea>
                 </div>
             </div>
         </div>
