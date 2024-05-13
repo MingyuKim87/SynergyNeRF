@@ -37,6 +37,8 @@
     <script src="js/app.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- equation fontsize -->
     <style>
@@ -48,13 +50,27 @@
 
     <!-- citation style -->
     <style>
-        /* Apply background color and text alignment styles */
+        .scrollbox {
+            width: 100%;
+            overflow: hidden;
+            padding: 5px;
+        }
+    
+        .scrollbox:hover {
+            overflow-x: auto;
+        }
+    
         #bibtex {
             background-color: #7c7c7c; /* Light grey background */
+            color: white; /* White text color for better readability on dark background */
             text-align: left; /* Left align text */
             width: 100%; /* Make textarea full width of its container */
             height: auto; /* Adjust height to fit the content */
+            min-height: 200px; /* Minimum height to ensure usability */
             padding: 5px; /* Add some padding inside the textarea */
+            font-family: monospace; /* Monospace font for bibliographic entries */
+            white-space: nowrap; /* Prevent text from wrapping */
+            border: none; /* Remove border */
         }
     </style>
 </head>
@@ -483,16 +499,15 @@
                 <h3>
                     Bibliography
                 </h3>
-                <div class="form-group col-md-10 col-md-offset-1">
+                <div class="form-group col-md-10 col-md-offset-1 scrollbox">
                     <textarea id="bibtex" class="form-control" readonly>
-@InProceedings{kim2024synergistic,
-    author    = {Kim, Mingyu and Kim, Jun-Seong, Yun, Se-Young and Kim, Jin-Hwa},
-    title     = {Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs},
-    booktitle = {International Conference on Machine Learning},
-    year      = {2024},
-    organization={PMLR}
-}
-                    </textarea>
+                        @InProceedings{kim2024synergistic,
+                            author    = {Kim, Mingyu and Kim, Jun-Seong, Yun, Se-Young and Kim, Jin-Hwa},
+                            title     = {Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs},
+                            booktitle = {International Conference on Machine Learning},
+                            year      = {2024},
+                            organization={PMLR}
+                        }</textarea>
                 </div>
             </div>
         </div>
