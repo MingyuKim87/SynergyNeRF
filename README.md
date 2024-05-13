@@ -106,8 +106,9 @@ We also extend our gratitude to <a href="https://actnova.io" target="_blank">ACT
 @InProceedings{kim2024synergistic,
   author    = {Kim, Mingyu and Kim, Jun-Seong, Yun, Se-Young and Kim, Jin-Hwa},  
   title     = {Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs},  
-  booktitle = {International Conference on Machine Learning},  
-  year      = {2024},  
-  organization={PMLR}  
+  booktitle = {Proceedings of the 41th International Conference on Machine Learning},
+  year      = {2024},
+  series    = {Proceedings of Machine Learning Research},
+  publisher = {PMLR},  
 }
 ```
