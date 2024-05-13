@@ -11,7 +11,7 @@ Create a directory named "data" and place the NeRF synthetic dataset into this d
 
 ## Training
 ```
-python main.py config=config/TensorRefine/official/{scene}.yaml
+python main.py config=config/SynergyNeRF/revised_cfgs/8_views/{scene}.yaml
 ```
 
 
@@ -20,12 +20,12 @@ When using `render_test=True` and `render_path=True`, the results at test viewpo
 Otherwise, if you want to run the code in inference mode, you should execute it as follows. 
 
 ```
-python main.py python main.py config=config/TensorRefine/official/{scene}.yaml systems.ckpt={checkpoint/path} render_only=True
+python main.py python main.py config=config/SynergyNeRF/revised_cfgs/8_views/{scene}.yaml systems.ckpt={checkpoint/path} render_only=True
 ```
 
 ## Visualization of Tensorial Features and Coordinate Networks
 This implementation offers novel-view synthesis from the learned model and includes visualization of tensorial features as well as the use of only the coordinate-network. Please execute the code as follows. 
 
 ```
-python main.py python main.py config=config/SynergyNeRF_disentangled/official/{scene}.yaml systems.ckpt={checkpoint/path}
+python main.py python main.py config=config/SynergyNeRF_disentangled/original_cfgs/8_views/{scene}.yaml systems.ckpt={checkpoint/path}
 ```
