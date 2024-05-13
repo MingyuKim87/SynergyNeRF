@@ -95,12 +95,6 @@ cd SynergyNeRF_4D
 python main.py --config=config/SynergyNeRF/official/{scene}.yaml
 ```
 
-
-## Acknowledgement
-This work was supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) [No.2022-0-00641, XVoice: Multi-Modal Voice Meta Learning]. 
-A portion of this work was carried out during an internship at <a href="https://naver-career.gitbook.io/en/teams/clova-cic/ai-lab" target="_blank">NAVER AI Lab</a>.
-We also extend our gratitude to <a href="https://actnova.io" target="_blank">ACTNOVA</a> for providing the computational resources required.
-
 ## Bibliography
 ```bibtext
 @InProceedings{kim2024synergistic,
@@ -112,3 +106,8 @@ We also extend our gratitude to <a href="https://actnova.io" target="_blank">ACT
   publisher = {PMLR},  
 }
 ```
+
+## Acknowledgement
+This work was supported by Institute of Information & communications Technology Planning & Evaluation (IITP) grant funded by the Korea government(MSIT) [No.2022-0-00641, XVoice: Multi-Modal Voice Meta Learning]. 
+A portion of this work was carried out during an internship at <a href="https://naver-career.gitbook.io/en/teams/clova-cic/ai-lab" target="_blank">NAVER AI Lab</a>.
+We also extend our gratitude to <a href="https://actnova.io" target="_blank">ACTNOVA</a> for providing the computational resources required.
