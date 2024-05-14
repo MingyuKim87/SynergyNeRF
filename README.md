@@ -75,7 +75,7 @@ unzip data.zip
 ```
 
 
-## Qhick Start
+## Quick Start
 We provide training scripts based on config files. First, we illustrate training static NeRFs for nerf_synthetic and tankandtemples.  
 To run this code on GPUs with 24GB of VRAM, you should use the configuration files located in `config/SynergyNeRF/revised_cfg/`.  
 If you want to run the code as described in the original paper, please use the configuration files found in `config/SynergyNeRF_disentangled/official/`.  
