@@ -6,6 +6,7 @@
   <!-- [<a href="https://arxiv.org/pdf/2306.16928.pdf"><strong>Paper</strong></a>] -->
   [<a href="https://arxiv.org/abs/2405.07857"><strong>ArXiv</strong></a>]  
   [<a href="https://mingyukim87.github.io/SynergyNeRF/"><strong>Project</strong></a>]
+  [<a href="https://icml.cc/virtual/2024/poster/34866"><strong>Conference</strong></a>] 
   <!-- [<a href="#citation"><strong>BibTeX</strong></a>] -->
 </p>
 
