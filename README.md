@@ -16,7 +16,7 @@
 
 Official PyTorch implementation of **SynergyNeRF**, as presented in our paper: \
 \
-**Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs (ICML2024)** \
+**Synergistic Integration of Coordinate Network and Tensorial Feature for Improving Neural Radiance Fields from Sparse Inputs (ICML2024)** \
 *[Mingyu Kim](https://mingyukim87.github.io/)<sup>1</sup>, [Jun-Seong Kim](https://ami.postech.ac.kr/members/kim-jun-seong/)<sup>2</sup>, 
 [Se-Young Yun](https://fbsqkd.github.io/)<sup>1†</sup>
 and [Jin-Hwa Kim](http://wityworks.com/)<sup>3†</sup>* \
