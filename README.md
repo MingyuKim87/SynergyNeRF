@@ -1,6 +1,6 @@
 <div align="center">
 
-# SynergyNeRF (ICML2024)
+# SynergyNeRF 
 
 <p align="center">
   <!-- [<a href="https://arxiv.org/pdf/2306.16928.pdf"><strong>Paper</strong></a>] -->
