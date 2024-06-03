@@ -101,7 +101,7 @@ python main.py --config=config/SynergyNeRF/official/{scene}.yaml
 ## Bibliography
 ```bibtext
 @InProceedings{kim2024synergistic,
-  author    = {Kim, Mingyu and Kim, Jun-Seong, Yun, Se-Young and Kim, Jin-Hwa},  
+  author    = {Kim, Mingyu and Kim, Jun Seong and Yun, Se Young and Kim, Jin Hwa},  
   title     = {Synergistic Integration of Coordinate Network and Tensorial Feature for Improving NeRFs from Sparse Inputs},  
   booktitle = {Proceedings of the 41th International Conference on Machine Learning},
   year      = {2024},
